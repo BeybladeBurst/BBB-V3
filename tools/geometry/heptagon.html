@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<title></title>
+<style>
+    :root {
+        font-size:100px;
+    }
+    div {
+        position:relative;
+        width:5em;height:5em;
+        animatkion:spin 2s infinite alternate-reverse;
+    }
+    @keyframes spin {
+        to {transform:rotate(180deg)}
+    }
+    figure {
+        margin:0;
+        position:absolute;top:50%;left:50%;
+        border-style:solid;
+        transform:translate(-50%,calc(-100%*var(--lowercos)/(var(--lowercos) + var(--midcos))));
+        --color:paleturquoise;
+    }
+    figure::before,figure::after {
+        content:'';
+        position:absolute;
+        border-style:solid;
+    }
+    figure::before {
+        border-width:0 calc(1em*var(--uppercos)) calc(1em*var(--uppersin)) calc(1em*var(--uppercos));
+        border-color:transparent transparent var(--color) transparent; 
+        top:calc(-1em*var(--uppersin));
+    }
+    figure {
+        width:calc(1em*2*var(--uppercos));height:0;
+        border-width:0 calc(1em*var(--midcos)) calc(1em*var(--midsin)) calc(1em*var(--midcos));
+        border-color:transparent transparent var(--color) transparent; 
+    }
+    figure::after {
+        width:1em;height:0;
+        border-width:calc(1em*var(--lowersin)) calc(1em*var(--lowercos)) 0 calc(1em*var(--lowercos));
+        border-color:var(--color) transparent transparent transparent; 
+        top:calc(1em*var(--midsin));left:calc(-1em*var(--midcos));
+    }
+    figure:first-child {
+        font-size:1.05em;
+        --color:darkturquoise;
+    }
+</style>
+
+<div>
+<figure></figure>
+<figure></figure>
+</div>
+
+<script>
+let angle=5/7*Math.PI; //1-2/7
+let upperSideAngle=1/7*Math.PI;
+let midSideAngle=3/7*Math.PI; //PI-(angle-upperSideAngle)
+let lowerSideAngle=2/7*Math.PI; //angle-midSideAngle
+document.querySelector('div').setAttribute('style','\
+    --uppercos:'+Math.cos(upperSideAngle)+';\
+    --uppersin:'+Math.sin(upperSideAngle)+';\
+    --midcos:'+Math.cos(midSideAngle)+';\
+    --midsin:'+Math.sin(midSideAngle)+';\
+    --lowercos:'+Math.cos(lowerSideAngle)+';\
+    --lowersin:'+Math.sin(lowerSideAngle)+';\
+');
+</script>

@@ -1,0 +1,265 @@
+main
+{padding-left:0;padding-right:0;line-height:1.25em;}
+form,menu
+{max-width:1000px;}
+caption.tips
+{width:initial;margin:0.5em auto;}
+th a,td:first-of-type,form fieldset>i,menu label,table~button
+{cursor:pointer;}
+
+menu
+{margin:0 auto;padding:0 0.5em;}
+menu p
+{
+    margin:0.1em;
+    text-align:left;
+}
+p i 
+{margin-right:0.25em;}
+menu div
+{
+    margin:0.1em auto 0.6em auto;
+    display:flex;justify-content:space-between;
+}
+menu div label,menu div::after
+{
+    width:23%;
+    border-radius:0.6em;
+    margin:0;padding:0.3em 0.1em;
+}
+
+form
+{
+    margin:0.5em auto 1em auto;padding:0 0.5em 1.5em 0.5em;
+    position:relative;border-bottom:double 2px grey;
+}
+form,form a[href]
+{display:flex;justify-content:space-between;align-items:center;}
+form a[href]
+{
+    position:relative;
+    justify-content:center;
+    margin:0.5em 0;
+}
+form a[href]:hover
+{filter:brightness(115%);}
+form a svg
+{width:7em;overflow:visible;}
+form a span
+{position:absolute;}
+form a:first-of-type span
+{top:1em;}
+form a:last-of-type span
+{bottom:1em;}
+
+form fieldset
+{
+    margin:auto;padding:0.2em 0.7em 0.4em 0.7em;
+    border-radius:0.8em;
+    width:45%;max-width:250px;
+}
+form legend
+{
+    border-color:grey;border-radius:50px;
+    padding:0.1em 0.8em;
+}
+form p
+{
+    padding:0.2em 0.8em;margin:0.3em 0;
+    border-radius:0.5em;
+    text-align:left;line-height:1.7em;
+    display: inline-flex;flex-wrap: wrap;justify-content: space-between;
+    width:100%;
+}
+form p input,form p select
+{
+    width:38%;height:1.8em;
+    padding:0 0.2em;margin-top:0.1em;
+    -webkit-appearance:none;
+    border:0.05em solid grey;border-radius:0;
+}
+form fieldset>i
+{
+    font-size:2em;
+    padding:0;margin:0.2em 0;
+    border:solid white;background:white;
+}
+
+table
+{
+    border-collapse:collapse;
+    overflow-x: auto;
+    margin:0 auto;
+}
+th a:hover
+{filter:brightness(90%);}
+tbody tr
+{
+    border-bottom:solid 1px black;
+    text-align: left;
+    vertical-align: middle;
+    height:1.2em;
+    white-space:nowrap;
+}
+tbody tr:first-of-type
+{border-top:solid 1px black;}
+td
+{position:relative;}
+td i,td sup
+{font-style:initial;position:absolute;}
+td sup
+{transform:translate(-.3em,-.6em);}
+td[colspan]~td:nth-of-type(6) i,
+td:not([colspan])~td:nth-of-type(11) i
+{position:initial;margin-right:0.05em;}
+td.symbol:nth-of-type(6),td.symbol:nth-of-type(11)
+{text-align:right;}
+
+th
+{font-weight:normal;}
+th a,th mark
+{
+    padding:0 0.3em;
+    display:flex;justify-content:center;align-items:center;
+}
+th a
+{
+    border-radius: 0.3em;
+    height:2.5em;width:calc(100% - 0.4em);
+    margin:0 auto 0.3em auto;
+    line-height:1.2em;
+}
+th:first-of-type a 
+{height:calc(2.5em + 0.4em + 3.2*0.75em);margin-bottom:0.5em;}
+th mark
+{
+    background:#DEDEDE;
+    border-radius:5em;
+    font-size:0.75em;line-height:1.4em;
+    height:3.2em;width:calc(97% - 0.2em);
+    position:relative;
+    margin:0 auto calc(0.5em/0.75) auto;
+}
+th mark span
+{text-align:left;}
+th img,td img
+{width:1em;margin:0 0 0.2em 0.2em;vertical-align:middle;}
+th mark::before
+{
+    content:'';position:absolute;z-index:-1;
+    bottom:-0.5em;
+    width:0;height:0;
+    border-style:solid;border-width:1em 1.5em 0 0;
+    border-color:#DEDEDE transparent transparent transparent;
+}
+th:nth-of-type(1) mark::before {right:1.5em;}
+th:nth-of-type(2) mark::before {left:1.5em;}
+th:nth-of-type(3) mark::before {left:1em;}
+th ruby
+{margin:0 -0.4em;}
+th rt
+{font-size:70%;}
+del
+{visibility:hidden !important;}
+
+td:first-of-type
+{color:blue;}
+td:not(:last-of-type).border-R
+{border-right:solid 1px black;}
+td:not(:first-child):not(:nth-of-type(10)).symbol.border-R, td[colspan]~td:nth-of-type(10).symbol.border-R 
+{border-right:solid 1px hsl(0,0%,60%);}
+td,.jap-td
+{padding:0;line-height:1.5em;}
+td.ten-char,td.symbol,td.five-char
+{padding:0 0.25em;}
+.padding-L
+{padding: 0 0 0 0.25em;}
+table~button
+{margin-bottom:1em;padding:1em 1.5em;}
+table+h2
+{display:block;margin:0.5em auto;}
+
+  
+/*label function*/
+#jap:not(:checked) ~ main table .chi,
+#jap:not(:checked) ~ main table .eng
+{display:none;}
+#jap:not(:checked) ~ main table .ten-char,
+#jap:not(:checked) ~ main table .five-char
+{padding-right:0;}
+#jap:not(:checked) ~ main table .padding-L
+{padding-left:0.25em !important;}
+@media (orientation:portrait) and (max-width:700px)
+{
+    #eng:not(:checked) ~ main table .chi,
+    #eng:not(:checked) ~ main table .jap,
+    #eng:checked ~ main table .eng
+    {display:none;}
+    #eng:not(:checked) ~ main table .ten-char,
+    #eng:not(:checked) ~ main table .five-char
+    {padding-right:0;}
+    #eng:checked ~ main table .padding-L
+    {padding-left:0;}
+    #eng:checked ~ main label[for='eng'] 
+    {color:silver;background:initial;}
+}
+@media (orientation:landscape),(min-width:700px)
+{
+    label[for='eng'],tbody span 
+    {display:none;}
+    menu div:first-of-type::after 
+    {content:'';}
+}
+
+/*font-size*/
+table+h2 small
+{font-size:0.6em;}
+menu p,form > a,form legend,table~button,td small
+{font-size:0.9em;}
+form p,form input,form select,menu label,form a[href]
+{font-size:0.8em;}
+form span i,table+h2
+{font-size:1.5em;}
+@media (max-width:700px) and (orientation:portrait)
+{
+    th {font-size:0.75em;}
+    td {font-size:0.69em;}
+    #jap:not(:checked) ~ main table td {font-size:0.56em;}
+}
+@media (max-width:700px) and (orientation:landscape),(min-width:700px)
+{
+    th {font-size:0.7em;}
+    td {font-size:0.59em;}
+}
+@media (min-width:800px)
+{
+    th {font-size:0.8em;}
+    td {font-size:0.695em;}
+}
+@media (min-width:890px)
+{
+    th {font-size:0.9em;}
+    td {font-size:0.8em;}
+}
+
+menu label,form fieldset,form legend,form p,table~button
+{border:0.1em solid;}
+
+/*color*/
+form p
+{border-color:hsl(var(--c),80%,70%);}
+th a
+{background-color:hsl(var(--c),90%,85%);}
+th:first-of-type a
+{background-color:hsl(0,0%,85%);}
+
+.RB {background-color: hsl(0,0%,95%);}
+.RBH {background-color: hsl(0,0%,80%);}
+.ST {background-color: hsl(250,90%,90%);}
+.SH {background-color: hsl(250,40%,80%);}
+.B {background-color: hsl(10,100%,90%);}
+.BH {background-color: hsl(10,50%,80%);}
+.RL {background-color: hsl(140,90%,85%);}
+.RLH {background-color: hsl(140,40%,75%);}
+.L {background-color: hsl(45,100%,85%);}
+.S {background-color: hsl(200,100%,90%);}

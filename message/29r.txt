@@ -1,0 +1,1 @@
+如果現在真的有需要及有心要留言，可以用 browser inspector 尋找相關 javascript，再以 console 留言。

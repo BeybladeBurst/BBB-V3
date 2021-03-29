@@ -1,0 +1,93 @@
+h1
+{
+    background-image:url('https://www.beyblade.jp/campaign/election2017/img/bg_02.jpg');
+    background-position:bottom;
+    background-size:40% auto;
+    margin:0.5em auto 1em auto;padding:0.2em;
+    width:95%;display:block;
+    border:solid 0.1em skyblue;border-radius:0.4em;
+    font-style:italic;color:blue;font-size:1.3em;
+    text-shadow:0.1em 0.1em 0 #fff,0.2em 0.2em 0 #dfe8f1;
+}
+h2
+{
+    width:100%;display:block;
+    border-top:0.1em solid; border-bottom:0.1em solid;
+    padding:0.5em 0; margin:1em 0 1em 0;
+    font-size:1.1em;
+}
+main
+{padding-left:0;padding-right:0;}
+h3 a
+{margin: 0 10px;}
+
+main>div.flexbox>div 
+{cursor:pointer;}
+.flexbox
+{display:flex;justify-content:center;flex-wrap:wrap;}
+.flexbox div
+{
+    margin:0.3em;padding:0 0.5em;
+    border-radius:0.75em;box-sizing:border-box;
+    border:0.15em solid var(--l);
+    min-height:18.5em;
+    font-size:0.7em;
+    position:relative;
+    background-color:hsl(var(--c),var(--s),var(--b));
+}
+.blh::after,.bls::after,.pll::after,.sl::after,.pl::after,
+div[class*='-lr']::after,div[class*='-r']::after,.dsl::after
+{
+    content: "\f2f9";
+    right:0.5em;
+    color: hsl(230,100%,60%);
+}
+div[class*='-l']::before,.dsl::before
+{
+    content: "\f2ea";
+    left:0.5em;
+    color: hsl(50,100%,50%);
+}
+.flexbox div::before,.flexbox div::after
+{
+    font-family:'Font Awesome 5 Free';font-size:1.5em;font-weight:700;
+    position:absolute;top:0.5em;
+    text-shadow:0.1em 0.1em 0.1em hsl(0,0%,50%);
+}
+
+#popup+label
+{background:hsla(0,0%,100%,0.8);}
+img
+{
+    margin:0.2em 0 0 0;
+    border-radius:0.75em;
+    width:10em;
+}
+
+@media (min-width:600px)
+{
+    img {width:150px;}
+    .flexbox div {min-width:13.5em;}
+}
+.flexbox p
+{height:auto;max-height:200px;}
+#popup+label img
+{margin:0;}
+
+div {--c:0;--s:0%;--b:100%;--l:#000000;}
+div.flexbox>.pl,div[class|='el']
+{--c:0;--s:0%;--b:90%;}
+div.flexbox>[class|='bl']
+{--c:0;--s:70%;--b:90%;}
+div.flexbox>[class|='lbl'],div.flexbox>.bl-lr,
+.sl,.plg,.long
+{--c:60;--s:70%;--b:90%;}
+.pll,.rlg,
+div.flexbox>.ll-lr,div.flexbox>.lbl-lr,.very-long
+{--c:120;--s:70%;--b:90%;}
+.dsl,.blh,.bls
+{--c:220;--s:70%;--b:90%;}
+.l {--l:#DCC752;}
+.s {--l:#6778FF;}
+.st {--l:#C56FF5;}
+.b {--l:#FF6C69;}

@@ -1,0 +1,175 @@
+<!doctype html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>いなくなった GONE</title>
+<link rel='stylesheet' href='/index.css'>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-138094590-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "UA-138094590-1");
+    const Q=(el,func)=>func? document.querySelectorAll(el).forEach(func):document.querySelector(el);
+</script>
+<style>
+@font-face {
+    font-family: "Mincho";
+    src: url("/include/fonts/Mincho.otf"); 
+}
+@font-face {
+    font-family: "MinchoC";
+    src: url("/include/fonts/Mincho-end.ttf"); 
+}
+body {
+    background:black;color:white;
+    margin:0;
+    text-align:center;
+    font-size:2vw;
+}
+header.end {
+    position:relative;
+    border:none;
+}
+h2.end {
+    position:absolute;
+    font-size:3em;
+    color:white;
+}
+h1.end {
+    opacity:0.5;
+    font-size:20em;
+    margin:.1em auto;
+}
+h1.end::before,h1.end::after {
+    position:absolute;
+    z-index:1;
+    color:#888;
+}
+h1.end::before {
+    content:attr(data-eng);
+    font-size:0.1em;
+    left:23.5%;bottom:-10.5%;
+}
+h1.end::after {
+    content:attr(data-chi);
+    font-size:0.13em;
+    white-space:nowrap;
+    right:41.5%;top:-9%;
+    transform:rotate(90deg);
+}
+h2.end:first-of-type {
+    top:30%;left:5%;
+    transform:rotate(20deg);
+}
+h2.end:last-of-type {
+    top:50%;right:5%;
+    transform:rotate(-15deg);
+}
+h3.end {
+    font-size:2em;
+    margin:.5em 0;
+    position:relative;
+    display:block;
+    top:initial;
+}
+h4.end {
+    font-size:1.5em;
+    margin:.1em 0 1.5em 0;
+    position:relative;
+    display:block;
+}
+#message {
+    font-family:sans-serif;
+    font-weight:normal;
+}
+</style></head>
+
+<header class='end'>
+    <h1 class='end' data-eng='GONE' data-chi='已移除'>410</h1>
+    <h2 class='end'>本網已結束運作</h2>
+    <h2 class='end'>The site has shut down</h2>
+</header>
+<h3 class='end'>感謝你於過去數年的支持</h3>
+<h4 class='end'>網域將於四月初失效</h4>
+<h3 class='end'>Thanks for your support in the past</h3>
+<h4 class='end'>The domain will be invalid at the beginning of April</h4>
+
+<section id='message' style='font-size:1.7em;display:none;'>
+    <input type=checkbox id=open checked>
+    <fieldset>
+        <input type=radio name=time id=this checked>
+        <label for=this>本周</label>
+        <input type=radio name=time id=past>
+        <label for=past>上周</label>
+        <h3><a>道</a><a>別</a><a>棧</a></h3>
+        <div></div>
+        
+        <input type=radio name=visibility id=public checked>
+        <label for=public>公開 Public</label>
+        <input type=radio name=visibility id=private>
+        <label for=private>私下 Private</label>
+        <input type=text maxlength='200'>
+        <button onclick='Message.process()' class='fas fa-paper-plane'>Go</button>
+    </fieldset>
+</section>
+
+<script>
+let input=Q('#message input[type=text]');
+input.addEventListener('keypress',e=>e.keyCode===13? Message.process():null);
+class Message {
+    constructor() {
+        Q('#message input[type=radio]', r=>r.addEventListener('change',()=>{
+            if (r.id=='this') Message.load();
+            if (r.id=='past') Message.load(true);
+            if (Q('#past').checked)
+                Message.toggle(true);
+            else
+                Message.toggle(false);
+        }));
+    }
+    static toggle(off) {
+        Q('#message input[type=text],#message button', e=>e.disabled=off? true:false);
+    }
+    static load(past=false) {
+        gtag('event','',{'event_category':'message-load'});
+        Q('#message div').innerHTML='';
+        let api=past? '/message/?prev':'/message/';
+        fetch(api).then(r=>r.json()).then(messages=>messages.forEach((m,i)=>Message.display(...m)));
+    }
+    static process() {
+        if (Q('#message button').disabled)
+            return;
+        if (!input.value.match(/^[ ]*$/) && !input.value.match(/^[0-9A-Za-z\-\=\[\]\;\'\,\.\/]*[ ]?$/) && input.value.length>3) {
+            Message.record(input.value,Q('#private').checked).then(r=>r.text()).then(m=>{
+                input.value='';
+                input.placeholder=m? `The IP you are using ${m} has been banned`:'成功！多謝！ Successful! Thank you!';
+                Q('#message button').setAttribute('disabled',true);
+            });
+            return Q('#private').checked? null:Message.display(null,null,input.value,'');
+        }
+        input.placeholder='請不要胡亂留言！No spam please!';
+        input.value='';
+    }
+    static record(message,priv=false) {
+        return fetch('/message/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'message='+message+(priv? '&private=':'')});
+    }
+    static display(stamp,ip,message,reply) {
+        input.value='';
+        if (reply=='d' || reply=='D') return;
+        let bq=document.createElement('blockquote');
+        let time= !stamp? new Date():new Date(parseInt(stamp)*1000);
+        bq.setAttribute('data-time',time.toLocaleDateString('zh').match(/\/(.+)$/)[1]+' '+time.toLocaleTimeString('zh',{hour12:false}).match(/^(.*):/)[1]);
+        let q=document.createElement('q');
+        q.innerHTML=message;
+        bq.appendChild(q);
+        let div=Q('#message div');
+        div.appendChild(bq);
+        if (reply)
+            div.insertAdjacentHTML('beforeend',`<blockquote class='reply'><q>${reply}</q></blockquote>`);
+        div.scrollTo(0,div.scrollHeight);
+    }
+}
+new Message();
+Message.load();
+</script>

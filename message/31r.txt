@@ -1,0 +1,5 @@
+所以留言版將在八月作有限度開放，並隨時因應需要而關閉。
+<a href='articles/GTbase.php'>立即試閱！</a>
+到<a href='https://www.j-platpat.inpit.go.jp' target='_blank'>特許情報</a>先選擇「意匠」，再輸入<br><input type='text' value='コマおもちゃ' style='width:7em' onclick='this.focus();this.setSelectionRange(0,99999);document.execCommand(`copy`);'>（一按即複製），然後檢索。
+改為收錄於<a href='articles/GT.php'>此處</a>。
+機會不低

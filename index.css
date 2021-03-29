@@ -1,0 +1,426 @@
+h1,h2,h3,h4,h5,h6
+{
+    border-radius:0;margin:0;padding:0;border:initial;
+    box-shadow:initial;font-style:inherit;width:inherit;
+    color:inherit;font-size:inherit;
+    display:inherit;background:initial;
+}
+*
+{line-height:1.5em;}
+body
+{position:relative;}
+#popup+label div
+{
+    position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);
+    background:white;
+    width:95%;max-width:600px;
+    max-height:90%;overflow-y:scroll;
+    margin:0 auto;padding:1em 1em;
+    text-align:left;
+}
+#popup+label h6
+{
+    width:100%;
+    border-bottom:0.1em solid;
+    font-style:italic;font-size:1.2em;
+    text-align:right;
+}
+#popup+label h6+p
+{
+    margin-top:.5em;
+    font-size:.9em;
+}
+
+a:hover
+{filter:brightness(115%);}
+section,header
+{
+    border-bottom:0.2em solid;
+    background-size:cover;background-position:50%;
+    padding:0.2em 0.6em;
+}
+header
+{padding:0 0.5em;}
+header article
+{
+    text-align:center;max-width:1000px;margin:auto;
+    display:flex;justify-content:space-between;align-items:center;
+    background:white;
+}
+header img
+{width:10em;}
+header hgroup
+{
+    text-align:right;
+    margin:0;padding:0.5em 0;
+}
+
+#contents
+{position:relative;}
+#contents a[href*='takaratomy'],.fb
+{
+    position:absolute;top:1em;
+    border-radius:0.8em;
+    background:hsla(160,90%,90%,0.65);
+    padding:0.5em;
+    text-decoration:none;
+}
+#contents a[href*='takaratomy']
+{right:1em;}
+.fb
+{left:1em;}
+@media (min-width:1030px) 
+{
+    #contents a[href*='takaratomy']
+    {right:calc(50% - 500px);}
+    .fb
+    {left:calc(50% - 500px);} 
+}
+.fb a
+{
+    display:flex;align-items:center;
+    text-align:left;text-decoration:none;color:blue;
+    margin:0.2em 0 0 0;
+}
+.fb a::before
+{
+    content:"\f082";font-family:'Font Awesome 5 Brands';
+    margin-right:0.15em;line-height:1;
+}
+menu
+{
+    position:relative;
+    padding:0;
+    margin:2.5em auto 2.5em auto;
+    width:14em;height:14em;
+}
+menu li,menu a span
+{
+    position:absolute;top:50%;left:50%;
+    transform:translate(-50%,-50%);
+}
+menu li
+{width:4.5em;height:4.5em;list-style:none;}
+menu li a
+{width:100%;height:100%;display:inline-block;}
+svg
+{overflow:visible;}
+menu a svg
+{
+    fill:hsla(0,0%,0%,0.1);stroke:hsl(var(--c),100%,80%);
+    filter:drop-shadow(0 0 0.1em hsl(var(--c),100%,70%)) drop-shadow(0 0 0.2em hsl(var(--c),100%,60%)) drop-shadow(0 0 0.4em hsl(var(--c),100%,50%));
+}
+menu a span
+{
+    color:hsl(var(--c),100%,90%);
+    -webkit-text-stroke:hsl(var(--c),100%,80%) 0.02em;
+}
+menu>svg:first-of-type
+{ 
+    stroke:hsl(var(--r),100%,80%);fill:none;
+    filter:drop-shadow(0 0 0.1em hsl(var(--r),100%,70%)) drop-shadow(0 0 0.2em hsl(var(--r),100%,60%)) drop-shadow(0 0 0.45em hsl(var(--r),100%,50%));
+}
+menu>svg:last-of-type
+{ 
+    stroke:white;fill:none;
+    filter:drop-shadow(0 0 0.15em hsl(var(--r),100%,90%)) drop-shadow(0 0 0.25em hsl(var(--r),100%,80%)) drop-shadow(0 0 0.5em hsl(var(--r),100%,70%));
+    stroke-dasharray:5;stroke-dashoffset:2.5;
+    stroke-linecap:round;
+    position:absolute;top:0%;left:0%;
+}
+
+menu a use,menu a use
+{animation:rotatingR 3s ease-out forwards;}
+menu>svg:last-of-type,menu>svg:last-of-type
+{animation:movingR 3s ease-out forwards;}
+menu:hover a use,menu:focus-within a use
+{animation:rotatingL 20s forwards;}
+menu:hover>svg:last-of-type,menu:focus-within>svg:last-of-type
+{animation:movingL 20s forwards;}
+@keyframes rotatingL
+{to {transform:rotate(-1079deg);}}
+@keyframes rotatingR
+{to {transform:rotate(359deg);}}
+
+fieldset
+{
+    position: relative;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 0.8em;
+    color: white;text-align:left;
+    margin: 3.5em auto 1em auto; padding: 2.5em 0.6em 1em 0.6em;
+    max-width:1000px;
+}
+h3
+{
+    position:absolute;
+    margin:0 0 0 0.2em;
+    top:-2.5em;
+    display:flex;
+}
+h3 a
+{margin:0 0.02em;}
+
+dl,dt,dd,ul,li
+{margin:0;clear:both;}
+ul
+{padding-left:1.5em;}
+ul ul
+{padding-left:.5em;}
+#now div li:last-of-type
+{width:calc(100% - 3em);}
+h2
+{color:steelblue;}
+#now h4,#now h4+ul li,#now a i
+{color:aqua;}
+#future h4,#future h4+ul li
+{color:orange;}
+#future a:link,#future a:visited,fieldset a[href]:not([href*='youtube']),label[for='feedback']
+{color:chartreuse;}
+h5
+{color:yellow;}
+time,article li
+{color:pink;}
+
+h4+div
+{position:relative;}
+h4+div a[href*='youtube']
+{position:absolute;right:0;bottom:-0.6em;}
+iframe
+{
+    margin:0.5em auto 0 auto;
+    width:22.304em;max-width:100%;
+    height:calc(22.304em*9/16);
+    border:none;
+}
+#future hr
+{border:0.05em solid orange;border-radius:1em;}
+
+#message fieldset input+label {
+    color:grey;
+}
+#message label[for=public] {
+    margin-right:1em;
+}
+#message fieldset [name=time]+label {
+    position:absolute;top:0;
+    transform:translate(0,-50%);
+    font-size:1.25em;
+}
+#message label[for=this] {
+    right:3em;
+}
+#message label[for=past] {
+    right:.5em;
+}
+#message label[for=open],#message :checked+label {
+    color:yellow !important;
+}
+#message fieldset,#message input:not([type=text]) {
+    display:none;
+    position:relative;
+}
+#message :checked~fieldset {
+    display:block;
+}
+#message fieldset div {
+    height:30em;
+    overflow-y:scroll;overflow-x:hidden;
+    margin-bottom:1.5em;
+    -webkit-overflow-scrolling: touch;
+}
+fieldset div::-webkit-scrollbar {
+    display:none;
+}
+#message input[type=text],#message button {
+    font-size:1em;
+    border-radius:9em;
+    padding:0 .5em;
+}
+#message input[type=text] {
+    width:82%;
+}
+#message button {
+    position:absolute;right:.5em;
+    width:15%;
+    background:hsl(var(--glow),100%,75%);
+}
+#message button:disabled {
+    background:silver;
+}
+#message input[placeholder*='No spam']::placeholder,
+#message input[placeholder*='banned']::placeholder {
+    color:red;
+}
+#message input[placeholder*='Success']::placeholder {
+    color:green;
+}
+#message input[placeholder*='Closed']::placeholder {
+    color:blue;
+}
+#message input::placeholder {
+    font-size:.7em;
+}
+
+blockquote {
+    margin:.7em 0;
+    position:relative;
+    z-index:1;
+}
+blockquote::before,blockquote::after {
+    position:absolute;
+    font-size:.6em;
+    top:0;
+}
+blockquote::before {
+    content:'用家';
+    z-index:1;
+    left:.75em;
+    color:black;
+}
+blockquote::after {
+    content:attr(data-time);
+    left:3.5em;
+    color:black;
+}
+blockquote.reply::before {
+    content:'網主';
+    z-index:1;
+    right:.75em;
+}
+q::before {
+    content:'';
+    position:absolute;bottom:-.4em;
+    width: 2.5em;height: 2.5em;
+    background: transparent;
+    border-style: solid;border-color:hsl(var(--c),90%,80%);border-radius: 20em;
+    z-index: -1;
+}
+blockquote q::before {
+    left: -1em;
+    border-width: 0 1em 0 0;
+}
+blockquote.reply q::before {
+    right: -1em;left:auto;
+    border-width: 0 0 0 1em;
+}
+blockquote.reply q:empty::after {
+    content:'（尚未回應）';
+    position:initial;
+}
+blockquote.reply {
+    text-align: right;
+    margin-bottom:1em;
+}
+blockquote q {
+    --c:150;
+    background: linear-gradient(to top right,hsl(var(--c),90%,80%) 30%,hsla(var(--c),90%,80%,.4));
+    min-width: 8.5em;
+    color:black;
+}
+blockquote.reply q {
+    --c:230;
+    background: linear-gradient(to top left,hsl(var(--c),90%,80%) 30%,hsla(var(--c),90%,80%,.4));
+    min-width:3em;
+}
+q {
+    padding: 1.5em .5em .25em .5em;
+    border-radius: .5em;
+    position: relative;
+    display: inline-block;
+    font-size:.8em;
+    word-break:break-word;
+    animation:highlight 1s .2s forwards;
+}
+@keyframes highlight {
+    from {filter:brightness(150%)}
+    to {filter:none;}
+}
+
+footer
+{
+    background-color:grey;
+    padding:0.5em;
+    color:white;
+    border:none;
+}
+footer textarea
+{width:90%;height:10em;margin:0.2em auto;}
+footer form input
+{vertical-align:middle;}
+/*text-art*/
+#now
+{--glow:175;}
+#future
+{--glow:35;}
+#message
+{--glow:265;}
+fieldset
+{
+    border:0.15em solid hsl(var(--glow),100%,50%);
+    box-shadow:0 0 1em 0.1em hsl(var(--glow),100%,50%),0 0 1em 0.1em hsl(var(--glow),100%,50%) inset;
+}
+h3
+{
+    color:hsl(var(--glow),100%,50%);
+    text-shadow:0.08em 0.08em 0 hsl(var(--glow),100%,100%), 0 0 1em hsl(var(--glow),100%,50%), 0 0 2em hsl(var(--glow),100%,30%);
+}
+#now h3 a:nth-child(1)
+{transform:translateY(0.3em);font-size:2.5em;}
+#now h3 a:nth-child(2)
+{transform:translateY(-0.3em);font-size:4em;}
+#now h3 a:nth-child(3)
+{transform:translateY(0.7em);font-size:1.5em;}
+#now h3 a:nth-child(4)
+{transform:translateY(0.1em);font-size:3em;}
+
+#future h3 a:nth-child(1)
+{transform:translateY(-0.2em);font-size:4em;}
+#future h3 a:nth-child(2)
+{transform:translateY(0.5em);font-size:2em;}
+#future h3 a:nth-child(3)
+{transform:translateY(0em);font-size:3.5em;}
+#future h3 a:nth-child(4)
+{transform:translateY(0.7em);font-size:1.5em;}
+
+#message h3 a:nth-child(1)
+{transform:translateY(0.3em);font-size:2.5em;}
+#message h3 a:nth-child(2)
+{transform:translateY(0.1em);font-size:2em;}
+#message h3 a:nth-child(3)
+{transform:translateY(0.2em);font-size:3em;}
+
+/*font-size*/
+footer
+{font-size:0.5em;}
+#contents a[href*='takaratomy']
+{font-size:0.7em;}
+h1
+{font-size:0.75em;}
+time,h5,fieldset li,.fb
+{font-size:0.8em;}
+menu a span,.fb a
+{font-size:0.85em;}
+h3,legend,h2:last-of-type
+{font-size:0.9em;}
+h4
+{font-size:1.05em;}
+h2:first-of-type
+{font-size:1.2em;}
+h4+div a i::before
+{font-size:2em;}
+.fb a::before
+{font-size:2.75em;}
+
+#contents,h1,h2,h3,h4,#now a span,section>label[for='popup']
+{
+    font-family:'Mincho','MinchoC',Georgia,Toppan Bunkyu Midashi Mincho,Hiragino Mincho ProN,serif;
+    font-display:swap;
+}
+@media (min-width:700px)
+{body{font-size:26px;}}
+@media (max-width:700px) and (orientation:portrait)
+{
+    #contents a[href*='takaratomy'] {left:1em;bottom:1em;top:initial;width:9em;}
+    menu {margin:2.5em 2.5em 2.5em auto;}
+}
